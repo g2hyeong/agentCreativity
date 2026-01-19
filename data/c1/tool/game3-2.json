@@ -1,0 +1,132 @@
+{
+  "soap": {
+    "0": {
+      "affordance": ["lubricate zipper", "reduce friction"],
+      "avoid": ["unscrew", "wipe surface"]
+    }
+  },
+  "dollar bill": {
+    "0": {
+      "affordance": ["needs drying", "heat to dry"],
+      "avoid": ["coin payment", "direct exchange"]
+    },
+    "1": {
+      "affordance": ["exchange to coins"],
+      "avoid": ["direct payment", "unlock"]
+    }
+  },
+  "dollar coins": {
+    "0": {
+      "affordance": ["coin payment", "2 dollar total"],
+      "avoid": ["exact 1.5 payment"]
+    },
+    "1": {
+      "affordance": ["exact 1.5 coin payment"],
+      "avoid": ["generic payment"]
+    }
+  },
+  "game ticket": {
+    "0": {
+      "affordance": ["start arcade game"],
+      "avoid": ["input numbers", "click spam"]
+    }
+  },
+  "key card": {
+    "0": {
+      "affordance": ["card reader authorization"],
+      "avoid": ["keyhole unlock", "password pad"]
+    }
+  },
+  "gold key": {
+    "0": {
+      "affordance": ["golden keyhole unlock"],
+      "avoid": ["card reader", "password"]
+    }
+  },
+  "piler": {
+    "0": {
+      "affordance": ["grip and pull", "loosen fixture"],
+      "avoid": ["high torque", "lubrication"]
+    }
+  },
+  "wrench": {
+    "0": {
+      "affordance": ["high torque", "unscrew joint"],
+      "avoid": ["pull fixture", "lubricate"]
+    }
+  },
+  "pipe": {
+    "0": {
+      "affordance": ["connect container", "extend port"],
+      "avoid": ["generate pressure", "control heat"]
+    }
+  },
+  "nozzle": {
+    "0": {
+      "affordance": ["control gas output"],
+      "avoid": ["fill gas", "connect container"]
+    }
+  },
+  "ladder": {
+    "0": {
+      "affordance": ["reach high place"],
+      "avoid": ["wipe surface", "unlock"]
+    }
+  },
+  "clothes": {
+    "0": {
+      "affordance": ["soakable cloth"],
+      "avoid": ["wipe alone", "lubricate"]
+    },
+    "1": {
+      "affordance": ["wet wrapping cloth"],
+      "avoid": ["dry wipe", "torque"]
+    }
+  },
+  "besom": {
+    "0": {
+      "affordance": ["long handle base"],
+      "avoid": ["effective wiping", "unlock"]
+    },
+    "1": {
+      "affordance": ["long reach wet wipe"],
+      "avoid": ["unlock", "assemble"]
+    }
+  },
+  "safe handle 1": {
+    "0": {
+      "affordance": ["attach safe handle"],
+      "avoid": ["open safe alone"]
+    }
+  },
+  "safe handle 2": {
+    "0": {
+      "affordance": ["attach second handle"],
+      "avoid": ["open safe alone"]
+    }
+  },
+  "drawing": {
+    "0": {
+      "affordance": ["location hint"],
+      "avoid": ["direct interaction"]
+    }
+  },
+  "gas tank": {
+    "0": {
+      "affordance": ["container needs connector"],
+      "avoid": ["burn", "fill"]
+    },
+    "1": {
+      "affordance": ["ready for filling"],
+      "avoid": ["burn"]
+    },
+    "2": {
+      "affordance": ["pressurized gas"],
+      "avoid": ["direct burn"]
+    },
+    "3": {
+      "affordance": ["controlled burner"],
+      "avoid": ["unlock", "wipe"]
+    }
+  }
+}

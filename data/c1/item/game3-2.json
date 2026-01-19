@@ -1,0 +1,62 @@
+{
+  "vending machine": {
+    "requires": ["coin payment"],
+    "avoid": ["bill input"]
+  },
+  "drying machine": {
+    "requires": ["exact 1.5 coin payment"],
+    "avoid": ["wrong amount"]
+  },
+  "handbag": {
+    "requires": ["lubricate zipper"],
+    "avoid": ["force open"]
+  },
+  "game machine": {
+    "requires": ["game ticket"],
+    "avoid": ["number input"]
+  },
+  "information board": {
+    "requires": ["top score input"],
+    "avoid": ["guessing"]
+  },
+  "office door password pad": {
+    "requires": ["combine two paper codes"],
+    "avoid": ["partial input"]
+  },
+  "drawer": {
+    "requires": ["card authorization"],
+    "avoid": ["key use"]
+  },
+  "red mail box": {
+    "requires": ["symbol to digit mapping"],
+    "avoid": ["random input"]
+  },
+  "tool box": {
+    "requires": ["base4 code"],
+    "avoid": ["digits outside 1 to 4"]
+  },
+  "pipe on machine": {
+    "requires": ["unscrew joint"],
+    "avoid": ["pull by force"]
+  },
+  "air vent": {
+    "requires": ["reach height", "connected container"],
+    "avoid": ["fill unconnected tank"]
+  },
+  "graffiti": {
+    "requires": ["long wet wipe"],
+    "avoid": ["dry wipe"]
+  },
+  "iron gate": {
+    "requires": ["gold key"],
+    "avoid": ["card use"]
+  },
+  "safe": {
+    "requires": ["two handles attached"],
+    "avoid": ["click early"]
+  },
+  "ventilation pipe fence": {
+    "requires": ["controlled burning"],
+    "avoid": ["physical force"]
+  }
+}

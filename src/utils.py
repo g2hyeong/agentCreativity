@@ -45,7 +45,7 @@ def call_model_server(sys_prompt: str, user_prompt: str, port="12345"):
 
 
 def call_LLM(model, sys_prompt, prompt, use_api=True, port="12345"):
-    return "click(door)"
+    # return "click(door)"
     if use_api:
         messages = [
             {'role': 'system', 'content': sys_prompt},

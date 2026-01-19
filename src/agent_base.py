@@ -93,6 +93,63 @@ class BaseAgent:
         p1 = scene_prompt.find("Possible Actions:")
         log["scene"] = scene_prompt[:p1].strip()
         log['possible_actions'] = scene_prompt[p1:].strip()
+
+        # ------------------------------------------------------------------
+        # ★ agent_creative에서 쓰던 <interactable scene> 파싱 로직을 그대로 활용
+        #   - line 형식: "<interactable scene> Turn left side: It leads to laundry room left corner"
+        #   - 여기서 move()에 쓸 이름은 콜론 앞 부분("Turn left side")만 사용
+        # ------------------------------------------------------------------
+        scene_act_list = []
+        for line in log["possible_actions"].split("\n"):
+            if "<interactable scene>" in line:
+                # "<interactable scene>" 뒤에서 콜론 앞까지를 scene 이름으로 사용
+                # 예: "Turn left side"
+                tail = line.split("<interactable scene>")[1]
+                scene_act = tail.split(":")[0].strip()
+                if scene_act:
+                    scene_act_list.append(scene_act)
+        # ------------------------------------------------------------------
+
+        '''form the prompt'''
+        prompt = scene_prompt + "\n\n"
+
+        # move() 인자 형식을 LLM에게 간단히 안내
+        if scene_act_list:
+            prompt += "NOTE:\n"
+            prompt += "- When you use the action `move`, you MUST use exactly one of the following scene names as the argument.\n"
+            prompt += "- Do NOT include any extra description such as `: It leads to ...`.\n"
+            prompt += "- Valid scene names: " + ", ".join(scene_act_list) + "\n"
+            prompt += f"- Example: move({scene_act_list[0]})\n\n"
+
+        if self.stuck:
+            prompt += self.form_helper_prompt(position, position, self.helper[0]["action_answer"])
+        prompt = f"Now you need to act on [Step {step}]\nYour current position is: {position}.\n" + prompt + "Please try not to repeat previous actions that already fails, and be creative to try different new actions. Your Response:\n"
+        print()
+        
+        if not self.stuck and self.memory > 0 and step > 0:
+            k = min(self.memory, step)
+            prompt = self.add_history(step, k) + prompt #add previous steps
+        
+        if self.stuck and self.stuck_in_help >= 10:
+            # Give direct answer if still stuck after 10 steps of help ...
+            action = self.helper[0]["action_answer"]
+        else:
+            action = call_LLM(self.controller, SYS_PROMPT_COT if self.CoT else SYS_PROMPT, prompt, self.is_api, self.port)
+        
+        log["action"] = action.strip()
+        action_answer = find_last_function_call(action)
+        log["action_answer"] = action_answer.strip()
+        cprint.info(action)
+        return
+
+    """
+    def take_action(self, scene_prompt, log):
+        step = log["step"]
+        position = log["position"]
+        
+        p1 = scene_prompt.find("Possible Actions:")
+        log["scene"] = scene_prompt[:p1].strip()
+        log['possible_actions'] = scene_prompt[p1:].strip()
         
         '''form the prompt'''
         prompt = scene_prompt + "\n\n"
@@ -116,7 +173,7 @@ class BaseAgent:
         log["action_answer"] = action_answer.strip()
         cprint.info(action)
         return
-        
+        """
 
     def act(self, step):
         log = {"step": step}

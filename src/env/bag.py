@@ -18,6 +18,9 @@ class Bag:
         name = content[1]
         return self.tools[name]
 
+    # 새로운 describe 함수 생성. (for C1, C2 ...)
+    # Tool 이 아닌 Bag 쪽에서 C1.json에 접근할 예정 (by tool.name)
+
     def describe(self, use_index, with_desc=True, ignore_tools=[]):
         if len(self.tools) == 0:
             return "There's currently not tool in your bag."

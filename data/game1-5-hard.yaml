@@ -540,7 +540,7 @@
       tool:
         name: paper 2
         states:
-          - desc: Strange blue liquid. It says -- ZZ=55, ZX+AZ=68.
+          - desc: Strange blue liquid. It says -- ZZ=55, ZX+AZ=68. # error
 
 
 - name: the control room

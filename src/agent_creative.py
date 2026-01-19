@@ -508,6 +508,7 @@ class EscapeAgent(BaseAgent):
         self.trigger_new_explore = None
         self.prompt_craft = False
         self.memory_pad = "There's currently nothing on memory pad."
+        # c1 registry 에 대한 객체를 여기서 매핑? new_tool_collected_c1 
 
 
 if __name__ == "__main__":
